@@ -1,0 +1,35 @@
+<html>
+<head>
+    <title>ThermoPi</title>
+    <base href="thermopi"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/basic.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/roundslider.min.css">
+    <script src="assets/js/jquery-2.min.js"></script>
+    <script src="assets/js/roundslider.min.js"></script>
+    <script src="assets/js/thermopi.js"></script>
+</head>
+<body>
+<div id="main">
+    <h3>Status</h3>
+    <div>
+        Heating status: <span id="heatingStatus"></span>
+    </div>
+
+    <h3>Metrics</h3>
+    <div id="metrics">
+        <p>Temperature: <span id="temp"></span> &deg;C</p>
+        <p>Humidity: <span id="humid"></span> &percnt;</p>
+    </div>
+
+    <h3>Toggle heating</h3>
+    <div>
+        <label for="heatingToggle">Control heating: </label>
+        <input type="button" id="heatingToggle" value="Toggle heating on/off"/>
+    </div>
+
+    <p>Target temperature:</p>
+    <div id="slider" style="margin-top:50px"></div>
+</div>
+
+</body>
+</html>
