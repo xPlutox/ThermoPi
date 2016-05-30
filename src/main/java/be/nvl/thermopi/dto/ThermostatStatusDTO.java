@@ -12,16 +12,16 @@ import java.math.BigDecimal;
  */
 public class ThermostatStatusDTO {
     private BigDecimal targetTemperature;
-    private Metrics metrics;
     private HeatingStatus heatingStatus;
+    private Metrics metrics;
 
     public ThermostatStatusDTO() {
     }
 
-    public ThermostatStatusDTO(BigDecimal targetTemperature, Metrics metrics, HeatingStatus heatingStatus) {
+    public ThermostatStatusDTO(BigDecimal targetTemperature, HeatingStatus heatingStatus, Metrics metrics) {
         this.targetTemperature = targetTemperature;
-        this.metrics = metrics;
         this.heatingStatus = heatingStatus;
+        this.metrics = metrics;
     }
 
     public BigDecimal getTargetTemperature() {

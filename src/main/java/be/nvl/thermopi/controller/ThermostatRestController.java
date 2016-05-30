@@ -41,10 +41,10 @@ public class ThermostatRestController {
     @RequestMapping(value = "room/get", method = RequestMethod.GET)
     @ResponseBody
     public ThermostatStatusDTO retrieveStatus() throws Exception {
-        ThermostatStatusDTO thermostatStatusDTO = new ThermostatStatusDTO();
-        thermostatStatusDTO.setHeatingStatus(heatingService.retrieveHeatingStatus());
-        thermostatStatusDTO.setMetrics(metricsService.retrieveMetrics());
-        return thermostatStatusDTO;
+        return new ThermostatStatusDTO(
+                thermostatService.retrieveRoom().getTargetTemp(),
+                heatingService.retrieveHeatingStatus(),
+                metricsService.retrieveMetrics());
     }
 
     @RequestMapping(value = "target/set", method = RequestMethod.GET)

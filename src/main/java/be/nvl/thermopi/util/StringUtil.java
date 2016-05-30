@@ -8,4 +8,7 @@ public class StringUtil {
     public static String formatByteAsBit(byte buteVar) {
         return "0b" + ("0000000" + Integer.toBinaryString(0xFF & buteVar)).replaceAll(".*(.{8})$", "$1");
     }
+    public static String formatByteAsBit(int integer) {
+        return "0b" + ("0000000" + Integer.toBinaryString(0xFF & integer)).replaceAll(".*(.{8})$", "$1");
+    }
 }

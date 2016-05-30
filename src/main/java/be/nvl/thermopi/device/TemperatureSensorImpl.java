@@ -80,13 +80,10 @@ public class TemperatureSensorImpl implements TemperatureSensor {
         log.info("Data3 output: " + StringUtil.formatByteAsBit(data3));
         log.info("Data4 output: " + StringUtil.formatByteAsBit(data4));
 
-        float resultTempCounts = (data3 * 256 + data4) >> 2;
-        log.info("Result temp: " + resultTempCounts);
+        float humid = ((data1 & 0x3f) * 256 + data2) / 16383 * 100;
+        float temp = ((data3 << 6) + (data4 >> 2)) / ((float)Math.pow(2, 14) - 1) * 165 - 40;
 
-        float humid = ((float)(data1 & 0x3f) * 256 + data2) / 16383 * 100;
-        float temp = ((resultTempCounts / 16383) * 165) - 40;
-
-        log.debug("Status: " + String.valueOf((data1 & 0xc0) >> 6));
+        log.info("Status: " + String.valueOf((data1 & 0xc0) >> 6));
         log.debug("Real humid: " + humid);
         log.debug("Real temp: " + temp);
         return MetricsDTO.build(temp, humid);
